@@ -18,12 +18,25 @@ Given the following binary tree
 
 your function should return the depth = 3.
 """
+
+
 class BinaryTreeNode:
     def __init__(self, value=0, left=None, right=None):
         self.value = value
         self.left = left
         self.right = right
 
-def maxDepth(self, root):
-    # Your code here
 
+def maxDepth(root):
+    # Your code here
+    # base case(s)
+    # if we have an empty tree, return 0
+    # how do we get closer to base case
+    if root is None:
+        return 0
+    # how do we get closer to base case?
+    # we recurse left & right
+    left_height = maxDepth(root.left) + 1
+    right_height = maxDepth(root.right) + 1
+
+    return max(left_height, right_height)
